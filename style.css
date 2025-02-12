@@ -1,7 +1,10 @@
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 40px;
     justify-content: center;
+    width: 100vw;
     height: 100vh;
     margin: 0;
     background-repeat: no-repeat;
@@ -10,12 +13,16 @@ body {
 }
 .container-wrapper {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
 }
 .container {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     width: 150px;
     height: 150px;
     border-radius: 8px;
@@ -28,12 +35,15 @@ body {
 /* Фон для каждого контейнера */
 .sun {
     background-image: url('./img/summer-bg.jpg');
+    background-size: cover;
 }
 .rain {
     background-image: url('./img/rainy-bg.jpg');
+    background-size: cover;
 }
 .snow {
     background-image: url('./img/winter-bg.jpg');
+    background-size: cover;
 }
 .play-button {
     cursor: pointer;
@@ -42,17 +52,68 @@ body {
     color: white;
     font-size: 20px;
 }
-.playing .play-button::before {
-    content: url(./img/pause.svg);
+
+.global-volume-slider {
+    width: 40vw;
 }
-.volume-slider {
-    width: 80%;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: none;
+
+/*Адаптивка *
+@media screen and (max-width: 1440px) {
+    .container {
+        width: 300px;
+        height: 300px;
+    }
+    .global-volume-slider {
+        width: 500px;
+        bottom: 380px;
+    }
 }
-.playing .volume-slider {
-    display: block;
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 200px;
+        height: 200px;
+    }
+    .global-volume-slider {
+        width: 300px;
+        bottom: 180px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .container-wrapper {
+        gap: 20px;
+    }
+    .container {
+        width: 150px;
+        height: 150px;
+    }
+    .global-volume-slider {
+        width: 250px;
+        bottom: 140px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .container-wrapper {
+        gap: 16px;
+    }
+    .container {
+        width: 100px;
+        height: 100px;
+    }
+    .global-volume-slider {
+        width: 150px;
+        bottom: 160px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .container-wrapper {
+        gap: 16px;
+    }
+    .container {
+        width: 80px;
+        height: 80px;
+    }
+    .global-volume-slider {
+        width: 130px;
+        bottom: 170px;
+    }
 }
